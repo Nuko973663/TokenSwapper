@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/3.0.0-rc.5/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>TokenSwapper</title>
+  </head>
+  <body>
+    <style>
+      .meta-gray {
+        -webkit-filter: grayscale(1);
+      }
+      .meta-normal {
+        -webkit-filter: grayscale(0);
+      }
+    </style>
+
+    <div class="container">
+      <div style="margin-top: 30px" class="row text-center">
+        <div class="col-md-12">
+          <h2>Token Swapper</h2>
+          <h5>Upgrade your old NFT to the new</h5>
+        </div>
+      </div>
+
+      <div style="margin-top: 30px" class="row text-center">
+        <div class="col-md-12">
+          <button id="enableMetamask" class="btn btn-primary">
+            Connect with Metamask
+          </button>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <span id="status"></span>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="row text-center">
+        <div class="col-md-12">
+          You have <span id="numOldToken">#</span> token(s) to exchange.
+        </div>
+      </div>
+      <br />
+
+      <div class="row text-center" id="exchangeContainer" style="display: none">
+        <div class="col-md-5">
+          <div class="card" style="width: 24rem">
+            <img
+              class="bd-placeholder-img card-img-top"
+              id="imgOld"
+              width="100%"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+            />
+            <div class="card-body">
+              <h5 class="card-title" id="oldTokenName">Old</h5>
+              <p class="card-text">
+                <small><span id="addressOld"></span></small>
+              </p>
+              <p class="card-text">
+                <small><span id="descriptionOld"></span></small>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 my-auto">
+          <img src="img/exchange.svg" width="100px" />
+          <span>
+            <button
+              id="approve"
+              class="btn btn-primary"
+              style="margin-top: 30px"
+            >
+              ① Approve
+            </button>
+          </span>
+          <span style="margin-top: 30px">
+            <button
+              id="exchange"
+              class="btn btn-primary"
+              style="margin-top: 15px"
+            >
+              ② Exchange
+            </button>
+          </span>
+        </div>
+        <div class="col-md-5">
+          <div class="card" style="width: 24rem">
+            <img
+              class="bd-placeholder-img card-img-top"
+              id="imgNew"
+              width="100%"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+            />
+            <div class="card-body">
+              <h5 class="card-title" id="newTokenName">New</h5>
+              <p class="card-text">
+                <small><span id="addressNew"></span></small>
+              </p>
+              <p class="card-text">
+                <small><span id="descriptionNew"></span></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <p id="hash"></p>
+        </div>
+      </div>
+    </div>
+    <script src="js/tokenswapper-mumbai.js"></script>
+  </body>
+</html>
